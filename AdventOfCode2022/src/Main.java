@@ -12,9 +12,9 @@ public class Main {
         try {
             ArrayList<String> lines =  reader.readLines(inputfile);
             int sum = 0;
-            for (String line: lines)
+            for (int i=0; i< lines.size(); i=i+3)
             {
-                sum += d.score_rucksack(line);
+                sum += d.score_badge(lines.get(i), lines.get(i+1), lines.get(i+2));
             }
             System.out.println(sum);
         } catch (IOException e) {
