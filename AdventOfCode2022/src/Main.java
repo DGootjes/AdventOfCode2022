@@ -3,22 +3,25 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-
-        String inputfile = System.getProperty("user.dir") + "\\AdventOfCode2022\\Day3\\input.txt";
-
+        String inputfile = System.getProperty("user.dir") + "\\AdventOfCode2022\\Day5\\input.txt";
         AdventInputReader reader = new AdventInputReader();
-        day3 d;
-        d = new day3();
+
         try {
-            ArrayList<String> lines =  reader.readLines(inputfile);
-            int sum = 0;
-            for (int i=0; i< lines.size(); i=i+3)
-            {
-                sum += d.score_badge(lines.get(i), lines.get(i+1), lines.get(i+2));
-            }
-            System.out.println(sum);
+            ArrayList<String> lines;
+            lines = reader.readLines(inputfile);
+            run_day5(lines);
+            //System.out.println(sum);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static void run_day5(ArrayList<String> lines)
+    {
+        day5 d;
+        d = new day5();
+        d.parse(lines);
+        d.perform_actions();
+        d.print_top_crates();
     }
 }
